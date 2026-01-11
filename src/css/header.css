@@ -1,0 +1,203 @@
+/* Mobile */
+@media screen and (max-width: 375px) {
+    
+    header.header {
+        /* max-width: 374px; */
+        width: 99%;
+        height: 64px;
+        gap: 0px;
+        border-radius: 0px 0px 8px 8px;
+        
+         
+        border: 1.5px solid #111111;
+        margin-bottom: 40px;
+        padding: 18px 20px;
+        
+       }   
+    div.container {
+        display: flex;
+        
+        justify-content: space-between;
+        width: 99%;
+        padding:0px 1em;
+        margin: 0 auto;
+        /* background-color: yellow; */
+    }
+    div.left-container {
+        position: absolute;
+        left: 20px;
+        /* width: 109px; */
+        height: 28px;
+        display: flex;
+        align-items: center;
+        float:left;
+    }
+    svg.nav-logo-icon {
+        vertical-align: middle;
+        margin: 20px 8px 20px 0px; 
+    }
+    svg.nav-logo-txt {
+        vertical-align: middle;
+        margin: 28px auto 25px 0px;
+        
+    }
+    div.center {
+        visibility: hidden;
+
+    }
+    div.right-container {
+        
+        position: absolute;
+        right: 40px;
+        width: 60px;
+        /* width: calc((100vw - 1280px) / 2 + 1280px); */
+        height: 28px;
+        display: flex;
+        align-items: center;
+        /* float:right; */
+        
+        
+    }
+    svg.swicther-2-svg {
+        vertical-align: middle;
+    }
+    svg.hmbrgr-menu {
+        vertical-align: middle;
+        /* background-color: cyan; */
+    }
+     .nav-item {
+        visibility: hidden;
+     }
+     svg.sign-up {
+        visibility: hidden;
+     }
+     a.nav-link {
+        visibility: hidden;
+     }
+}
+
+/* Tablet */
+@media screen and (min-width: 375px) and (max-width: 768px) {
+    .header {
+        
+        max-width: 768px;
+        height: 72px;
+        gap: 0px;
+        border-radius: 0px 0px 8px 8px;
+        
+        opacity: 0px; 
+        border: 1.5px solid #111111;
+        margin-bottom: 40px;
+        padding: 18px 20px;
+       }   
+    div.container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+    }
+    div.left-container {
+        position: absolute;
+        left: 20px;
+        width: 109px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        float:left;
+    }
+    svg.nav-logo-icon {
+        vertical-align: middle;
+        margin: 20px 8px 20px 0px; 
+    }
+    svg.nav-logo-txt {
+        vertical-align: middle;
+        margin: 28px auto 25px 0px;
+        
+    }
+    div.right-container {
+        position: absolute;
+        right: 220px;
+        width: 82px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        float:right;
+    }
+    svg.swicther-2-svg {
+        vertical-align: middle;
+    }
+    svg.hmbrgr-menu {
+        vertical-align: middle;
+        visibility: hidden;
+    }
+     .nav-item {
+        visibility:visible;
+    }
+    div.center {
+        position: relative;
+        left: 20px;
+        
+        width: 400px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    ul.nav-list {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+        position: relative;
+        top: -15px;
+        left: 30px;
+    }
+    li.nav-item > a.nav-link.shopping-list {
+        position: relative;
+        top: -3px;
+        left: 5px;
+    }
+    a.nav-link.home {
+        position: relative;
+        
+        left: -10px;
+        width: 40px;
+        height: 18px;
+        padding: 8px 16px 8px 16px;
+        gap: 10px;
+        border-radius: 36px 36px 36px 36px;
+        opacity: 0px;
+        background-color: var(--yellow);
+        font-family: var(--dmsans);
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 18px;
+        letter-spacing: -0.04em;
+        text-align: left;
+        text-underline-position: from-font;
+        text-decoration-skip-ink: none;
+        /* margin: auto; */
+    }
+    
+    svg.lock-02 {
+        width: auto;
+        height: auto;
+    }
+    svg.sign-up.btn-sign-up {
+        width: 184px;
+        height: 45px;
+        right: 32px;
+        
+        gap: 0px;
+        border-radius: 36px 36px 36px 36px;
+        opacity: 0px;
+        background: var(--violet);
+
+    }
+}
+
+
+/* Desktop */
+@media screen and (min-width: 769px) {
+    
+}

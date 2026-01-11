@@ -1,0 +1,660 @@
+/* Mobile */
+@media screen and (max-width: 767px) {
+  :root {
+    --header-h: 64px;
+  }
+  header.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    width: 100%;
+    height: 64px;
+    gap: 0px;
+    border-radius: 0px 0px 8px 8px;
+
+    background-color: var(--white);
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    margin-bottom: 0;
+    padding: 18px 20px;
+  }
+  div.container {
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+    padding: 0px 1em;
+    margin: 0 auto;
+  }
+  div.left-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    float: left;
+  }
+  div.center {
+    visibility: hidden;
+  }
+  div.right-container {
+    position: absolute;
+    right: 40px;
+
+    height: 28px;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+  }
+  svg.sign-up.btn-sign-up {
+    visibility: hidden;
+    width: 0px;
+  }
+  a.nav-link {
+    visibility: hidden;
+  }
+  svg.nav-logo-icon {
+    vertical-align: middle;
+    margin: 0;
+  }
+  svg.nav-logo-txt {
+    vertical-align: middle;
+    margin: 0;
+  }
+  svg.swicther-2-svg {
+    margin-top: 0px;
+    margin-right: 14px;
+  }
+  svg.hmbrgr-menu {
+    margin-top: 0px;
+  }
+  #login-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-signUp {
+    background: #f6f6f6;
+    width: 80%;
+    height: 516px;
+    top: 127px;
+    left: 430px;
+    gap: 0px;
+    border-radius: 18px 18px 18px 18px;
+    border: 2px 2px 2px 2px;
+    opacity: 0px;
+    border: 2px solid #111111;
+  }
+  .top-form {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .top-form .close-modal {
+    cursor: pointer;
+    padding: 24px 24px;
+    font-size: 14px;
+  }
+  .login-form form input {
+    width: 80%;
+    height: 64px;
+    padding: 20px 173px 20px 40px;
+    gap: 10px;
+    border-radius: 40px 40px 40px 40px;
+    border: 2px 2px 2px 2px;
+    opacity: 0px;
+    margin-bottom: 28px;
+    margin-left: 40px;
+  }
+  .dark-mode::-webkit-input-placeholder {
+    color: var(--white);
+  }
+  .login-form button {
+    width: 80%;
+    height: 64px;
+    padding: 20px 173px 20px 173px;
+    gap: 10px;
+    border-radius: 40px 40px 40px 40px;
+    opacity: 0px;
+    background: #111111;
+    color: #f3f3f3;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  div.modal-window {
+    width: 153px;
+    height: 24px;
+    margin-left: 40%;
+  }
+  div.modal-window a {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -1%;
+
+    text-decoration-style: solid;
+
+    text-decoration-thickness: Auto;
+    cursor: pointer;
+  }
+  div.modal-window a#window-sign-up {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -1%;
+    text-decoration: underline;
+    text-decoration-style: solid;
+
+    text-decoration-thickness: Auto;
+    color: var(--accent);
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) and (max-width: 1439px) {
+  :root {
+    --header-h: 72px;
+  }
+  header.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    width: 100%;
+    height: 72px;
+    gap: 0px;
+    border-radius: 0px 0px 8px 8px;
+
+    background-color: var(--white);
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    margin-bottom: 0;
+    padding: 13px 32px;
+  }
+  div.container {
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+
+    padding: 0px 1em;
+    margin: 0 auto;
+  }
+  div.left-container {
+    position: absolute;
+    top: 50%;
+    left: 32px;
+    transform: translateY(-50%);
+    /* width: 109px; */
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    float: left;
+    margin-top: 0;
+  }
+  div.center {
+    visibility: visible;
+    position: relative;
+    left: 0px;
+
+    width: 600px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div.right-container {
+    position: absolute;
+    right: 40px;
+
+    height: 45px;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+  }
+  svg.sign-up.btn-sign-up {
+    position: relative;
+
+    visibility: visible;
+    vertical-align: middle;
+    margin-top: -30px;
+  }
+
+  svg.nav-logo-icon {
+    vertical-align: middle;
+    margin: 0;
+  }
+  svg.nav-logo-txt {
+    vertical-align: middle;
+    margin: 0;
+  }
+  svg.swicther-2-svg {
+    vertical-align: top;
+    margin-top: -15px;
+    margin-right: 24px;
+  }
+  svg.hmbrgr-menu {
+    visibility: hidden;
+    width: 0px;
+  }
+  ul.nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  li.nav-item > a.nav-link.shopping-list {
+    width: 94px;
+    height: 18px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: var(--dmsans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: var(--black);
+    visibility: visible;
+    position: relative;
+    top: -30px;
+  }
+  a.nav-link.home {
+    visibility: visible;
+
+    width: 40px;
+    height: 18px;
+    padding: 8px 16px 8px 16px;
+    gap: 10px;
+    border-radius: 36px 36px 36px 36px;
+    opacity: 0px;
+    background-color: var(--yellow);
+    font-family: var(--dmsans);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    position: relative;
+    top: -25px;
+    margin-right: 32px;
+  }
+  svg.lock-02 {
+    position: relative;
+    top: -25px;
+  }
+  #login-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-signUp {
+    background: #f6f6f6;
+    width: 579px;
+    height: 516px;
+    top: 127px;
+    left: 430px;
+    gap: 0px;
+    border-radius: 18px 18px 18px 18px;
+    border: 2px 2px 2px 2px;
+    opacity: 0px;
+    border: 2px solid #111111;
+  }
+  .top-form {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .top-form .close-modal {
+    cursor: pointer;
+    padding: 24px 24px;
+    font-size: 14px;
+  }
+  .login-form form input {
+    width: 499px;
+    height: 64px;
+    padding: 20px 173px 20px 40px;
+    gap: 10px;
+    border-radius: 40px 40px 40px 40px;
+    border: 2px 2px 2px 2px;
+    opacity: 0px;
+    margin-bottom: 28px;
+    margin-left: 40px;
+  }
+  .dark-mode::-webkit-input-placeholder {
+    color: var(--white);
+  }
+  .login-form button {
+    width: 499px;
+    height: 64px;
+    padding: 20px 173px 20px 173px;
+    gap: 10px;
+    border-radius: 40px 40px 40px 40px;
+    opacity: 0px;
+    background: #111111;
+    color: #f3f3f3;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  div.modal-window {
+    width: 153px;
+    height: 24px;
+    margin-left: 231px;
+  }
+  div.modal-window a {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -1%;
+
+    text-decoration-style: solid;
+
+    text-decoration-thickness: Auto;
+    cursor: pointer;
+  }
+  div.modal-window a#window-sign-up {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  div.signed-in {
+    min-width: 184px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--violet);
+
+    border-radius: 36px;
+  }
+  div.signed-in img {
+    position: relative;
+    left: -50px;
+  }
+  a#btn-sign-out {
+    display: none;
+  }
+  svg.btn-sign-out {
+    position: relative;
+    right: -40px;
+  }
+  svg.btn-log-out {
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    cursor: pointer;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+  :root {
+    --header-h: 72px;
+  }
+  header.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 200;
+    width: 100%;
+    height: 72px;
+    gap: 0px;
+    border-radius: 0px 0px 8px 8px;
+
+    background-color: var(--white);
+    border: 1px solid rgba(15, 23, 42, 0.14);
+    margin-bottom: 0;
+    padding: 13px 32px;
+  }
+  div.container {
+    display: flex;
+    justify-content: space-between;
+    width: 99%;
+
+    padding: 0px 1em;
+    margin: 0 auto;
+  }
+  div.left-container {
+    position: absolute;
+    top: 50%;
+    left: 32px;
+    transform: translateY(-50%);
+    /* width: 109px; */
+    height: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    float: left;
+    margin-top: 0;
+  }
+  div.center {
+    visibility: visible;
+    position: relative;
+    left: 0px;
+
+    width: 600px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  div.right-container {
+    position: absolute;
+    right: 40px;
+
+    height: 45px;
+    display: flex;
+    align-items: end;
+    justify-content: flex-end;
+  }
+  svg.sign-up.btn-sign-up {
+    position: relative;
+
+    visibility: visible;
+    vertical-align: middle;
+    margin-top: -30px;
+  }
+
+  svg.nav-logo-icon {
+    vertical-align: middle;
+    margin: 0;
+  }
+  svg.nav-logo-txt {
+    vertical-align: middle;
+    margin: 0;
+  }
+  svg.swicther-2-svg {
+    vertical-align: top;
+    margin-top: -15px;
+    margin-right: 24px;
+  }
+  svg.hmbrgr-menu {
+    visibility: hidden;
+    width: 0px;
+  }
+  ul.nav-list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  li.nav-item > a.nav-link.shopping-list {
+    width: 94px;
+    height: 18px;
+    gap: 0px;
+    opacity: 0px;
+    font-family: var(--dmsans);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: var(--black);
+    visibility: visible;
+    position: relative;
+    top: -30px;
+  }
+  a.nav-link.home {
+    visibility: visible;
+
+    width: 40px;
+    height: 18px;
+    padding: 8px 16px 8px 16px;
+    gap: 10px;
+    border-radius: 36px 36px 36px 36px;
+    opacity: 0px;
+    background-color: var(--yellow);
+    font-family: var(--dmsans);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    letter-spacing: -0.04em;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    position: relative;
+    top: -25px;
+    margin-right: 32px;
+  }
+  svg.lock-02 {
+    position: relative;
+    top: -25px;
+  }
+  #login-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-signUp {
+    background: #f6f6f6;
+    width: 579px;
+    height: 516px;
+    top: 127px;
+    left: 430px;
+    gap: 0px;
+    border-radius: 18px 18px 18px 18px;
+    border: 2px 2px 2px 2px;
+    opacity: 0px;
+    border: 2px solid #111111;
+  }
+  .top-form {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .top-form .close-modal {
+    cursor: pointer;
+    padding: 24px 24px;
+    font-size: 14px;
+  }
+  .login-form form input {
+    width: 499px;
+    height: 64px;
+    padding: 20px 173px 20px 40px;
+    gap: 10px;
+    border-radius: 40px 40px 40px 40px;
+    border: 2px 2px 2px 2px;
+    opacity: 0px;
+    margin-bottom: 28px;
+    margin-left: 40px;
+  }
+  .dark-mode::-webkit-input-placeholder {
+    color: var(--white);
+  }
+  .login-form button {
+    width: 499px;
+    height: 64px;
+    padding: 20px 173px 20px 173px;
+    gap: 10px;
+    border-radius: 40px 40px 40px 40px;
+    opacity: 0px;
+    background: #111111;
+    color: #f3f3f3;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  div.modal-window {
+    width: 153px;
+    height: 24px;
+    margin-left: 231px;
+  }
+  div.modal-window a {
+    font-family: DM Sans;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -1%;
+
+    text-decoration-style: solid;
+
+    text-decoration-thickness: Auto;
+    cursor: pointer;
+  }
+  div.modal-window a#window-sign-up {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+  div.signed-in {
+    min-width: 184px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--violet);
+
+    border-radius: 36px;
+  }
+  div.signed-in img {
+    position: relative;
+    left: -50px;
+  }
+  a#btn-sign-out {
+    display: none;
+  }
+  svg.btn-sign-out {
+    position: relative;
+    right: -40px;
+  }
+  svg.btn-log-out {
+    position: absolute;
+    right: 0px;
+    top: 50px;
+    cursor: pointer;
+  }
+}
