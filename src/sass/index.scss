@@ -1,42 +1,42 @@
 // Defaults
-@use './base/basic-reset';
-@use './base/defaults';
+@import './base/basic-reset';
+@import './base/defaults';
 
 // Fonts
-@use './fonts/fonts';
+@import './fonts/fonts';
 
 // Utilities
-@use './utils/variables';
-@use './utils/animations';
-@use './utils/mixins';
+@import './utils/variables';
+@import './utils/animations';
+@import './utils/mixins';
 
 // Common styles
-@use './common';
+@import './common';
 
 // Components
-@use './components/buttons';
-@use './components/back-to-top';
-@use './components/spinner';
-@use './components/color-scheme-switcher';
-@use './components/pagination';
+@import './components/buttons';
+@import './components/back-to-top';
+@import './components/spinner';
+@import './components/color-scheme-switcher';
+@import './components/pagination';
 
 // Layout
 // Header
-@use './layout/header';
-@use './layout/authorization-form';
-@use './layout/burger-menu';
+@import './layout/header';
+@import './layout/authorization-form';
+@import './layout/burger-menu';
 
 // Sidebar
-@use './layout/categories-menu';
+@import './layout/categories-menu';
 
 // Content part
-@use './layout/bestsellers';
-@use './layout/home-content';
-@use './layout/shopping-list-content';
+@import './layout/bestsellers';
+@import './layout/home-content';
+@import './layout/shopping-list-content';
 
 // Modal
-@use './layout/modal';
+@import './layout/modal';
 
 // Color schemes
-@use './color-schemes/light';
-@use './color-schemes/dark';
+@import './color-schemes/light';
+@import './color-schemes/dark';
