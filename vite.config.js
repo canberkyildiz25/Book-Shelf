@@ -1,48 +1,43 @@
 import { defineConfig } from 'vite';
-import { glob } from 'glob';
-import injectHTML from 'vite-plugin-html-inject';
-import FullReload from 'vite-plugin-full-reload';
-import SortCss from 'postcss-sort-media-queries';
+import fs from 'node:fs';
+import path from 'node:path';
 
-export default defineConfig(({ command }) => {
+function htmlIncludePlugin() {
+  function replaceIncludes(html, baseDir) {
+    return html.replace(
+      /<include\s+src=["'](.+?)["']\s*>(?:<\/include>)?/g,
+      (_, srcPath) => {
+        const resolved = path.resolve(baseDir, srcPath);
+        const content = fs.readFileSync(resolved, 'utf-8');
+        // Recursively process includes inside included files (always relative to src root)
+        return replaceIncludes(content, baseDir);
+      }
+    );
+  }
+
   return {
-    define: {
-      [command === 'serve' ? 'global' : '_global']: {},
-    },
-    root: 'src',
-    build: {
-      sourcemap: true,
-      rollupOptions: {
-        input: glob.sync('./src/*.html'),
-        output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
-          },
-          entryFileNames: chunkInfo => {
-            if (chunkInfo.name === 'commonHelpers') {
-              return 'commonHelpers.js';
-            }
-            return '[name].js';
-          },
-          assetFileNames: assetInfo => {
-            if (assetInfo.name && assetInfo.name.endsWith('.html')) {
-              return '[name].[ext]';
-            }
-            return 'assets/[name]-[hash][extname]';
-          },
-        },
+    name: 'html-include-plugin',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        const baseDir = path.resolve(process.cwd(), 'src');
+        return replaceIncludes(html, baseDir);
       },
-      outDir: '../dist',
-      emptyOutDir: true,
     },
-    plugins: [
-      injectHTML(),
-      FullReload(['./src/**/**.html']),
-      SortCss({
-        sort: 'mobile-first',
-      }),
-    ],
   };
+}
+
+export default defineConfig({
+  root: 'src',
+  base: '/bookshelf/',
+  build: {
+    outDir: path.resolve(process.cwd(), 'dist'),
+    rollupOptions: {
+      input: {
+        main: path.resolve(process.cwd(), 'src/index.html'),
+        shopping: path.resolve(process.cwd(), 'src/shopping-list.html'),
+      },
+    },
+  },
+  plugins: [htmlIncludePlugin()],
 });

@@ -8,12 +8,14 @@
       name="description"
       content="Browse and shop for best books out there"
     />
-    <title>Bookshelf</title>
+
+    <title>Shopping list</title>
+
     <!-- Favicon -->
     <include src="./partials/components/favicon.html"></include>
     <!-- CSS is imported via JS entry -->
     <!-- JS -->
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./shopping-list.js"></script>
   </head>
 
   <body class="page">
@@ -26,23 +28,17 @@
       <div class="to-top-target"></div>
 
       <!-- Sidebar -->
-      <aside class="sidebar">
-        <!--  -->
-        <!-- Book category selection menu -->
-        <include src="./partials/layout/sidebar/categories.html"></include>
-      </aside>
+      <aside class="sidebar sidebar-shoppinglist"></aside>
 
       <!-- Main -->
       <main class="content">
         <!-- Page content -->
-        <include src="./partials/layout/home-content.html"></include>
-
-        <!-- Modal -->
-        <include src="./partials/modals/modal.html"></include>
+        <include src="./partials/layout/shopping-list-content.html"></include>
+        <include src="./partials/components/pagination.html"></include>
 
         <!-- Back to top button -->
         <include src="./partials/components/back-to-top.html"></include>
-
+        <!--  -->
         <!-- burger-menu-->
         <include src="./partials/layout/header/burger-menu.html"></include>
       </main>
