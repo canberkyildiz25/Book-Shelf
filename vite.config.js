@@ -29,7 +29,7 @@ function htmlIncludePlugin() {
 
 export default defineConfig({
   root: 'src',
-  base: '/bookshelf/',
+  base: process.env.DEPLOY_ENV === 'gh-pages' ? '/bookshelf/' : '/',
   build: {
     outDir: path.resolve(process.cwd(), 'dist'),
     rollupOptions: {
