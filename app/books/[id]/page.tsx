@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Footer } from '@/components/Footer';
 import { SaveButton } from '@/components/SaveButton';
-import { SpineFace, spineName, spineStyle } from '@/components/Spine';
+import { BookFace, spineName, spineStyle } from '@/components/Spine';
 import { stay } from '@/lib/catalogue';
 import { findBook, getCatalogue } from '@/lib/data';
 import { FAMILIES, FORMATS } from '@/lib/sections';
@@ -133,7 +133,18 @@ export default async function BookPage({ params }: Props) {
 
               <div className="book__actions">
                 <SaveButton
-                  book={{ id: book.id, title: book.title, author: book.author, weeks: book.weeks, family: book.family, format: book.format, shelfmark: book.shelfmark }}
+                  book={{
+                    id: book.id,
+                    title: book.title,
+                    author: book.author,
+                    weeks: book.weeks,
+                    family: book.family,
+                    format: book.format,
+                    shelfmark: book.shelfmark,
+                    cover: book.cover,
+                    coverWidth: book.coverWidth,
+                    coverHeight: book.coverHeight,
+                  }}
                 />
               </div>
               {book.links.length ? (
@@ -162,8 +173,8 @@ export default async function BookPage({ params }: Props) {
                 Its spine, beside the scale:
               </p>
               <div className="power__row">
-                <span className="spine" data-family={book.family} data-format={book.format} style={spineStyle(book)} role="img" aria-label={spineName(book)}>
-                  <SpineFace book={book} />
+                <span className="vol" data-family={book.family} data-format={book.format} style={spineStyle(book)} role="img" aria-label={spineName(book)}>
+                  <BookFace book={book} faceOut={false} />
                 </span>
                 {SCALE.map(([weeks, label]) => (
                   <div key={label} className="power__ref" aria-hidden="true">

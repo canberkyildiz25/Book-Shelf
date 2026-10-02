@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { stay } from '@/lib/catalogue';
 import { useHydrated, useShelf } from '@/lib/store';
-import { SpineFace, spineName, spineStyle } from './Spine';
+import { BookFace, spineName, spineStyle } from './Spine';
 
 /** Your own shelf: the books you added, standing at the same scale as the
     shop's. It is kept in this browser only. */
@@ -27,12 +27,12 @@ export function MyShelf() {
         </div>
       </dl>
 
-      <ol className="case" aria-label="Books on your shelf">
+      <ol className="case" data-stand="face" aria-label="Books on your shelf">
         {books.length ? (
           books.map((book) => (
             <li key={book.id} className="slot">
-              <Link className="spine" href={`/books/${book.id}`} data-family={book.family} data-format={book.format} style={spineStyle(book)} aria-label={spineName(book)}>
-                <SpineFace book={book} />
+              <Link className="vol" href={`/books/${book.id}`} data-family={book.family} data-format={book.format} style={spineStyle(book)} aria-label={spineName(book)}>
+                <BookFace book={book} faceOut />
               </Link>
             </li>
           ))

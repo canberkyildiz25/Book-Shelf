@@ -21,5 +21,10 @@
     "type": "Michroma (display) + Sofia Sans / Sofia Sans Condensed (text, slabs) + JetBrains Mono (readouts)",
     "motion": "unchanged in kind: rack fills on load, slabs eject, View Transitions on re-arrange",
     "critique": "P5 H4 E4 S5 R4 V5"
+  },
+  {
+    "date": "2026-10-02",
+    "scope": "rack",
+    "change": "Books stand face out by default: the cover beside the spine at its real proportion, with a spine-out switch. Asked for by the owner. Spine thickness is unchanged in both modes."
   }
 ]

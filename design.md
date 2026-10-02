@@ -17,6 +17,7 @@ the slab's shape is the data.
 | Height | Format | The list the book is on (hardcover tallest, audio shortest) |
 | Lit bar and digits | Family of lists | Fiction, nonfiction, advice, children, young adult, graphic |
 | Readout at the foot | The number of weeks | Printed on every slab |
+| Cover beside the spine | The book itself | The list's own cover image, at its real proportion |
 | Shelfmark | Section code, first three letters of the author's surname, weeks | `NON·P KOL 349` |
 
 Thickness uses the square root of the weeks because the range is 1 to 906.
@@ -34,7 +35,8 @@ storage rack, and status lights.
   system accent, a lime, used for controls and counts.
 - A book is a slab: a deep tint of its family's hue, a lit bar across its
   head in the family's signal colour, a cut corner like a punched card, and
-  a small readout with the weeks.
+  a small readout with the weeks. Its cover stands beside it. The covers
+  are the one place where outside colour comes in, and they are real.
 - Light is drawn flat: a bar, a digit, a line. **Nothing glows, nothing
   blurs, nothing fades from one colour to another.** That is what keeps it
   from reading as generated neon.
@@ -125,6 +127,10 @@ Headings are roman. No italics in headings, no gradient text.
   End jump to the ends. The focus ring is drawn inside the slab because the
   cut corner would clip an outside one.
 - Arrange by staying power, section or author; show one family or all.
+- Stand them **face out** (the default: every book shows its cover beside
+  its spine, as a shop does with the books it wants seen) or **spine out**
+  (spines only, the whole collection in a few rows). The spine keeps its
+  thickness either way, so the data is never traded for the picture.
 - Arranging by section stands an outlined divider before each run.
 
 ## Motion

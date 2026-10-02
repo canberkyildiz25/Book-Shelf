@@ -571,34 +571,58 @@
     letter-spacing: 0.08em;
     white-space: nowrap;
   }
-  /* A slab. Thickness is the weeks, height the format. The lit bar across
-     its head is the family's signal; one corner is cut, like a punched card. */
-  .spine {
+  /* A book in the rack. Its spine is a slab: thickness is the weeks, height
+     the format. The lit bar across the head is the family's signal, and one
+     corner is cut like a punched card. Stood face out, the cover is beside
+     the spine, the way a shop shows the books it wants you to see. */
+  .vol {
+    --bar: 0.3rem;
+    --tall: calc((var(--row) - 1.25rem) * var(--h));
     position: relative;
+    display: flex;
+    align-items: flex-start;
+    height: var(--tall);
+    border-top: var(--bar) solid var(--sig);
+    color: var(--panel-ink);
+    clip-path: polygon(0 0, calc(100% - 0.4rem) 0, 100% 0.4rem, 100% 100%, 0 100%);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 180ms var(--ease-out);
+  }
+  /* the clip would cut an outside ring, so the ring is drawn inside the volume */
+  .vol:focus-visible {
+    outline: 2px solid var(--panel-ink);
+    outline-offset: -4px;
+  }
+  .spine {
+    flex: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.4rem;
     width: calc(var(--base) + var(--s) * var(--unit));
-    height: calc((var(--row) - 1.25rem) * var(--h));
+    /* a button does not stretch its children, so the height is given outright */
+    height: calc(var(--tall) - var(--bar));
     padding-block: 0.65rem 0.3rem;
-    border-top: 0.3rem solid var(--sig);
     background: var(--deep);
-    color: var(--panel-ink);
     box-shadow:
       inset 1px 0 0 var(--edge-light),
       inset -1px 0 0 var(--edge-dark);
-    clip-path: polygon(0 0, calc(100% - 0.4rem) 0, 100% 0.4rem, 100% 100%, 0 100%);
-    text-decoration: none;
-    cursor: pointer;
     container-type: inline-size;
     overflow: hidden;
-    transition: transform 180ms var(--ease-out);
   }
-  /* the clip would cut an outside ring, so the ring is drawn inside the slab */
-  .spine:focus-visible {
-    outline: 2px solid var(--panel-ink);
-    outline-offset: -4px;
+  .cover {
+    flex: none;
+    width: auto;
+    max-width: none;
+    height: calc(var(--tall) - var(--bar));
+    aspect-ratio: var(--ar);
+    object-fit: cover;
+    background: var(--panel-2);
+  }
+  /* face out, the books need a little air between them */
+  .case[data-stand='face'] .slot {
+    padding-right: 0.45rem;
   }
   /* The title is set at --fs, which grows with the slab's thickness, but
      never larger than --cap, which a short format or a small rack lowers. */
@@ -676,33 +700,31 @@
   }
   /* a phone's rack is lower, so every slab is set smaller there */
   @media (max-width: 47.99rem) {
-    .spine {
+    .vol {
       --cap: 0.9rem;
       --author: none;
     }
   }
   /* short formats have less length to print on */
-  .spine[data-format='picture'],
-  .spine[data-format='audio'],
-  .spine[data-format='graphic'] {
+  .vol[data-format='picture'],
+  .vol[data-format='audio'],
+  .vol[data-format='graphic'] {
     --cap: 0.84rem;
   }
-  .spine[data-format='picture'],
-  .spine[data-format='audio'] {
+  .vol[data-format='picture'],
+  .vol[data-format='audio'] {
     --author: none;
   }
   @media (hover: hover) and (pointer: fine) {
-    .spine:hover {
+    .vol:hover {
       transform: translateY(-0.4rem);
     }
   }
-  /* the slab in hand is ejected, and its readout lights up */
-  .spine[aria-pressed='true'],
-  .spine[aria-current='true'] {
+  /* the book in hand is ejected, and its readout lights up */
+  .vol[aria-pressed='true'] {
     transform: translateY(-0.85rem);
   }
-  .spine[aria-pressed='true'] .spine__label,
-  .spine[aria-current='true'] .spine__label {
+  .vol[aria-pressed='true'] .spine__label {
     background: var(--sig);
     color: var(--on-sig);
   }
@@ -1316,7 +1338,13 @@
     white-space: nowrap;
     padding-bottom: 0.3rem;
   }
-  .power__row .spine {
+  /* beside a very thick slab a narrow phone has no room for the longest reference */
+  @media (max-width: 26rem) {
+    .power__ref:last-child {
+      display: none;
+    }
+  }
+  .power__row .vol {
     cursor: default;
     margin-right: 0.9rem;
   }
@@ -1442,7 +1470,7 @@
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .spine {
+  .vol {
     transition: none;
   }
   ::view-transition-group(*),

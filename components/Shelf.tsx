@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { stay } from '@/lib/catalogue';
 import { FAMILIES, FAMILY_ORDER, type Family, type Format } from '@/lib/sections';
 import { SaveButton } from './SaveButton';
-import { SpineFace, spineName, spineStyle } from './Spine';
+import { BookFace, spineName, spineStyle } from './Spine';
 
 export interface ShelfBook {
   id: string;
@@ -28,6 +28,8 @@ export interface ShelfBook {
 }
 
 type Order = 'weeks' | 'section' | 'author';
+/** Bookshop words: face out shows the cover, spine out only the spine. */
+type Stand = 'face' | 'spine';
 
 const ORDERS: { value: Order; label: string }[] = [
   { value: 'weeks', label: 'Staying power' },
@@ -43,6 +45,7 @@ const surname = (author: string) => author.split(/,| and | with /i)[0].trim().sp
 export function Shelf({ books, families = true }: { books: ShelfBook[]; families?: boolean }) {
   const [order, setOrder] = useState<Order>('weeks');
   const [family, setFamily] = useState<Family | 'all'>('all');
+  const [stand, setStand] = useState<Stand>('face');
   const [picked, setPicked] = useState(books[0]?.id ?? '');
   const [fresh, setFresh] = useState(true);
   const caseRef = useRef<HTMLOListElement>(null);
@@ -106,6 +109,19 @@ export function Shelf({ books, families = true }: { books: ShelfBook[]; families
             ))}
           </div>
         </fieldset>
+        <fieldset>
+          <legend className="sign">Stand them</legend>
+          <div className="seg sign">
+            <label>
+              <input type="radio" name="stand" checked={stand === 'face'} onChange={() => rearrange(() => setStand('face'))} />
+              Face out
+            </label>
+            <label>
+              <input type="radio" name="stand" checked={stand === 'spine'} onChange={() => rearrange(() => setStand('spine'))} />
+              Spine out
+            </label>
+          </div>
+        </fieldset>
         {families ? (
           <fieldset>
             <legend className="sign">Show</legend>
@@ -128,7 +144,7 @@ export function Shelf({ books, families = true }: { books: ShelfBook[]; families
 
       <div className="shelf__body">
         <div>
-          <ol className="case" ref={caseRef} data-fresh={fresh} onKeyDown={onKeyDown} aria-label="Books on the shelf. Use the left and right arrow keys to move along it.">
+          <ol className="case" ref={caseRef} data-fresh={fresh} data-stand={stand} onKeyDown={onKeyDown} aria-label="Books on the shelf. Use the left and right arrow keys to move along it.">
             {shown.map((book, i) => {
               const startsSection = order === 'section' && (i === 0 || shown[i - 1].section !== book.section);
               return (
@@ -140,7 +156,7 @@ export function Shelf({ books, families = true }: { books: ShelfBook[]; families
                   ) : null}
                   <button
                     type="button"
-                    className="spine"
+                    className="vol"
                     data-id={book.id}
                     data-family={book.family}
                     data-format={book.format}
@@ -150,7 +166,7 @@ export function Shelf({ books, families = true }: { books: ShelfBook[]; families
                     tabIndex={book.id === active?.id ? 0 : -1}
                     onClick={() => setPicked(book.id)}
                   >
-                    <SpineFace book={book} />
+                    <BookFace book={book} faceOut={stand === 'face'} />
                   </button>
                 </li>
               );
@@ -173,7 +189,7 @@ export function Shelf({ books, families = true }: { books: ShelfBook[]; families
             </div>
             <p>
               The thicker the spine, the longer the book stayed on its list; thickness grows with the square root of the weeks, so the giants still fit. Height is the
-              format, hardcovers tallest and audio shortest. Colour is the family of lists.
+              format, hardcovers tallest and audio shortest. The lit bar is the family of lists. Stood face out, each book shows its cover beside its spine.
             </p>
           </div>
         </div>
@@ -217,6 +233,9 @@ export function Shelf({ books, families = true }: { books: ShelfBook[]; families
                     family: active.family,
                     format: active.format,
                     shelfmark: active.shelfmark,
+                    cover: active.cover,
+                    coverWidth: active.coverWidth,
+                    coverHeight: active.coverHeight,
                   }}
                 />
               </div>

@@ -11,8 +11,9 @@ category. The first version is in the repository's history.
 
 ## What it does
 
-- Draws every book as a slab in a storage rack. Arrange by staying power, section
-  or author; show one family of lists or all of them.
+- Draws every book as a slab in a storage rack, with its cover beside the
+  spine. Arrange by staying power, section or author; show one family of
+  lists or all of them; stand the books face out or spine out.
 - One page per section, with its own shelf and a register in rank order.
 - One page per book: a catalogue card, the figures as recorded, and the
   book's spine drawn beside the scale.

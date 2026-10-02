@@ -14,6 +14,9 @@ export interface SavedBook {
   family: Family;
   format: Format;
   shelfmark: string;
+  cover?: string;
+  coverWidth?: number;
+  coverHeight?: number;
 }
 
 interface ShelfState {
