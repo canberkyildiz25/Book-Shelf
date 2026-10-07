@@ -51,14 +51,35 @@ re-shelving animation uses the browser's View Transitions.
 | `components/Shelf.tsx` | The bookcase: selection, arranging, filtering |
 | `design.md` | The design system and its rules |
 
-## Commands
+## Run it
+
+Node 20 or newer.
 
 ```bash
 npm install
-npm run dev
-npm run build
+npm run dev          # http://localhost:3000
+npm run build        # the production build
+npm start            # serve that build
 npm run lint
 npm run typecheck
+npm run snapshot     # refresh data/snapshot.json from the API
 ```
 
-A concept project by Canberk Yıldız. Nothing is sold here.
+| Variable | What it is for |
+| --- | --- |
+| `SHELFMARK_SNAPSHOT=1` | Work from `data/snapshot.json` and never call the API. Useful offline, and when the API is down. |
+
+Nothing else needs to be set. The books API is public and takes no key.
+
+## Deploying
+
+The live site is on Vercel and builds from `main`. `vercel.json` tells Vercel that this is a Next.js app.
+
+## Notes
+
+- The API it reads belongs to the course the first version was written for, and it can go away. That is why the snapshot is kept in the repository and why the footer says when it is in use.
+- Covers and bestseller data are the New York Times's, by way of that API. Nothing is sold here.
+
+## Author
+
+[Canberk Yıldız](https://canberkyildiz.netlify.app)
